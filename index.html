@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS Collections</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background:#fff0f6;
+    margin:0;
+}
+header {
+    background:#ff4da6;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+.grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    gap:20px;
+    padding:20px;
+}
+.card {
+    background:white;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    overflow:hidden;
+    text-align:center;
+}
+.card img {
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+.card button {
+    background:#25D366;
+    border:none;
+    color:white;
+    padding:10px;
+    width:100%;
+    cursor:pointer;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>VS Collections</h1>
+<p>Productos Victoria's Secret disponibles</p>
+</header>
+
+<div class="grid" id="products"></div>
+
+<script>
+const username = "javiersandovalgracia1972-wq";
+const repo = "vs-collections";
+const whatsapp = "5216643608957";
+
+async function loadImages() {
+    const url = `https://api.github.com/repos/${username}/${repo}/contents/`;
+    const response = await fetch(url);
+    const files = await response.json();
+
+    const container = document.getElementById("products");
+
+    files.forEach(file => {
+        if(file.type === "file" && (file.name.endsWith(".jpg") || file.name.endsWith(".png") || file.name.endsWith(".jpeg"))) {
+
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+                <img src="${file.download_url}" />
+                <button onclick="buy('${file.name}')">Preguntar por WhatsApp</button>
+            `;
+
+            container.appendChild(card);
+        }
+    });
+}
+
+function buy(product) {
+    const text = encodeURIComponent("Hola, me interesa este producto: " + product);
+    window.open(`https://wa.me/${whatsapp}?text=${text}`, "_blank");
+}
+
+loadImages();
+</script>
+
+</body>
+</html>
