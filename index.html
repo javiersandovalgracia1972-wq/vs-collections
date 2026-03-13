@@ -61,50 +61,53 @@ font-size:18px;
 <h2>Panties / Tangas</h2>
 <p class="price">$199 c/u | 3 por $550</p>
 
-<div class="gallery">
-
-<img src="panty1.jpg">
-<img src="panty2.jpg">
-<img src="panty3.jpg">
+<div class="gallery" id="panties"></div>
 
 </div>
-</div>
-
 
 <div class="section">
 <h2>Conjuntos</h2>
 <p class="price">$850</p>
 
 <div class="gallery">
-
 <img src="conjuntos/conjunto1.jpg">
 <img src="conjuntos/conjunto2.jpg">
-
-</div>
 </div>
 
+</div>
 
 <div class="section">
 <h2>Bodies</h2>
 
 <div class="gallery">
-
 <img src="bodies/body1.jpg">
 <img src="bodies/body2.jpg">
-
-</div>
 </div>
 
+</div>
 
 <div class="section">
 <h2>Cremas y Lociones</h2>
 <p class="price">$250 c/u | Set 2 piezas $450</p>
 </div>
 
-
 <a class="button" href="https://wa.me/526643608957">
 Comprar por WhatsApp
 </a>
+
+<script>
+
+for(let i=1;i<=200;i++){
+
+let img=document.createElement("img")
+
+img.src="Messenger_creation_"+i+".jpg"
+
+document.getElementById("panties").appendChild(img)
+
+}
+
+</script>
 
 </body>
 </html>
