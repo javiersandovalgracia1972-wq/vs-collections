@@ -1,198 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VS Collections</title>
+<title>The VS Collections</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#fff0f6;
+body{
+font-family: Arial;
+background:#fff0f5;
+text-align:center;
 }
 
-header {
-    background:linear-gradient(90deg,#ff4da6,#ff80bf);
-    color:white;
-    text-align:center;
-    padding:30px 20px;
+h1{
+color:#d63384;
 }
 
-header h1 {
-    margin:0;
-    font-size:32px;
+.section{
+margin:40px;
 }
 
-header p {
-    margin-top:8px;
-    font-size:16px;
+.price{
+font-size:20px;
+font-weight:bold;
+margin-bottom:20px;
 }
 
-.promo {
-    background:#000;
-    color:white;
-    text-align:center;
-    padding:15px;
-    font-size:18px;
-    font-weight:bold;
-}
-
-.search-box {
-    text-align:center;
-    padding:20px;
-}
-
-.search-box input {
-    width:80%;
-    max-width:400px;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    font-size:16px;
-}
-
-.grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
-    gap:20px;
-    padding:20px;
-}
-
-.card {
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.card img {
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card .info {
-    padding:10px;
-    text-align:center;
-}
-
-.price {
-    color:#e60073;
-    font-weight:bold;
-    margin:5px 0;
-}
-
-button {
-    background:#25D366;
-    border:none;
-    color:white;
-    padding:10px;
-    width:100%;
-    cursor:pointer;
-    font-size:14px;
-}
-
-button:hover {
-    background:#1ebe5d;
-}
-
-.whatsapp-float {
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    padding:15px 18px;
-    border-radius:50px;
-    font-size:16px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    text-decoration:none;
-}
-
-footer {
-    text-align:center;
-    padding:20px;
-    font-size:14px;
-    color:#666;
+.button{
+display:inline-block;
+padding:12px 22px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:6px;
+margin-top:20px;
+font-size:18px;
 }
 </style>
+
 </head>
 
 <body>
 
-<header>
-<h1>VS Collections</h1>
-<p>Lencería y fragancias Victoria's Secret</p>
-</header>
+<h1>The VS Collections</h1>
+<p>Venta de productos Victoria Secret en Tijuana</p>
 
-<div class="promo">
-🔥 PROMO: Panties Victoria's Secret — 3 por $550 MXN
+<div class="section">
+<h2>Panties / Tangas</h2>
+<p class="price">$199 c/u | 3 por $550</p>
 </div>
 
-<div class="search-box">
-<input type="text" id="search" placeholder="Buscar producto...">
+<div class="section">
+<h2>Conjuntos</h2>
+<p class="price">$850</p>
 </div>
 
-<div class="grid" id="products"></div>
+<div class="section">
+<h2>Bodies</h2>
+<p class="price">Pregunta por disponibilidad</p>
+</div>
 
-<a class="whatsapp-float" target="_blank"
-href="https://wa.me/5216643608957?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20productos">
-WhatsApp
+<div class="section">
+<h2>Cremas y Lociones</h2>
+<p class="price">$250 c/u | Set 2 piezas $450</p>
+</div>
+
+<a class="button" href="https://wa.me/526643608957">
+Comprar por WhatsApp
 </a>
-
-<footer>
-© VS Collections
-</footer>
-
-<script>
-const username = "javiersandovalgracia1972-wq";
-const repo = "vs-collections";
-
-async function loadImages() {
-    const url = `https://api.github.com/repos/${username}/${repo}/contents/`;
-    const response = await fetch(url);
-    const files = await response.json();
-
-    const container = document.getElementById("products");
-
-    files.forEach(file => {
-        if(file.type === "file" && (file.name.endsWith(".jpg") || file.name.endsWith(".png") || file.name.endsWith(".jpeg"))) {
-
-            const card = document.createElement("div");
-            card.className = "card";
-
-            card.innerHTML = `
-                <img src="${file.download_url}">
-                <div class="info">
-                    <div class="price">$199 c/u  |  3 por $550 MXN</div>
-                    <button onclick="buy('${file.name}')">Pedir por WhatsApp</button>
-                </div>
-            `;
-
-            container.appendChild(card);
-        }
-    });
-}
-
-function buy(product) {
-    const text = encodeURIComponent("Hola, me interesa este producto: " + product);
-    window.open(`https://wa.me/5216643608957?text=${text}`, "_blank");
-}
-
-document.getElementById("search").addEventListener("input", function() {
-    const term = this.value.toLowerCase();
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-        const img = card.querySelector("img").src.toLowerCase();
-        card.style.display = img.includes(term) ? "block" : "none";
-    });
-});
-
-loadImages();
-</script>
 
 </body>
 </html>
