@@ -3,44 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <title>The VS Collections</title>
+
 <style>
 body{
 font-family: Arial;
 background:#fff0f5;
 text-align:center;
 }
+
 h1{
 color:#d63384;
 }
+
 .section{
 margin:40px;
 }
-.gallery{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
-}
-.gallery img{
-width:180px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
+
 .price{
 font-size:20px;
 font-weight:bold;
 margin-bottom:20px;
 }
+
 .button{
 display:inline-block;
-padding:10px 20px;
+padding:12px 22px;
 background:#25D366;
 color:white;
 text-decoration:none;
 border-radius:6px;
-margin-top:10px;
+margin-top:20px;
+font-size:18px;
 }
 </style>
+
 </head>
 
 <body>
