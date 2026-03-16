@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-<meta charset="UTF-8">
+
 <title>The VS Collections</title>
 
 <style>
+
 body{
-font-family: Arial;
+font-family:Arial;
 background:#fff0f5;
 text-align:center;
 }
@@ -19,22 +21,29 @@ color:#d63384;
 margin:40px;
 }
 
-.price{
-font-size:20px;
-font-weight:bold;
-margin-bottom:20px;
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.gallery img{
+width:180px;
+border-radius:10px;
+box-shadow:0 0 8px rgba(0,0,0,0.2);
 }
 
 .button{
 display:inline-block;
-padding:12px 22px;
 background:#25D366;
 color:white;
-text-decoration:none;
+padding:8px 15px;
 border-radius:6px;
-margin-top:20px;
-font-size:18px;
+text-decoration:none;
+margin-top:10px;
 }
+
 </style>
 
 </head>
@@ -45,28 +54,61 @@ font-size:18px;
 <p>Venta de productos Victoria Secret en Tijuana</p>
 
 <div class="section">
+
 <h2>Panties / Tangas</h2>
-<p class="price">$199 c/u | 3 por $550</p>
+<p>$199 c/u | 3 por $550</p>
+
+<div class="gallery">
+
+<!-- PON AQUÍ LAS FOTOS DE PANTIES -->
+
 </div>
 
+<a class="button" href="https://wa.me/526643608957">Comprar por WhatsApp</a>
+
+</div>
+
+
 <div class="section">
+
 <h2>Conjuntos</h2>
-<p class="price">$850</p>
+<p>$850</p>
+
+<div class="gallery">
+
+<!-- FOTOS DE CONJUNTOS -->
+
 </div>
 
+<a class="button" href="https://wa.me/526643608957">Comprar por WhatsApp</a>
+
+</div>
+
+
 <div class="section">
+
 <h2>Bodies</h2>
-<p class="price">Pregunta por disponibilidad</p>
+<p>Pregunta por disponibilidad</p>
+
+<div class="gallery">
+
+<!-- FOTOS DE BODIES -->
+
 </div>
+
+<a class="button" href="https://wa.me/526643608957">Comprar por WhatsApp</a>
+
+</div>
+
 
 <div class="section">
-<h2>Cremas y Lociones</h2>
-<p class="price">$250 c/u | Set 2 piezas $450</p>
-</div>
 
-<a class="button" href="https://wa.me/526643608957">
-Comprar por WhatsApp
-</a>
+<h2>Cremas y Lociones</h2>
+<p>$250 c/u | Set 2 piezas $450</p>
+
+<a class="button" href="https://wa.me/526643608957">Comprar por WhatsApp</a>
+
+</div>
 
 </body>
 </html>
