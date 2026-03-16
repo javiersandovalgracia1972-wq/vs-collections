@@ -1,145 +1,164 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-
+<meta charset="UTF-8">
 <title>The VS Collections</title>
 
 <style>
 
 body{
 font-family:Arial;
-background:#fff0f5;
-text-align:center;
 margin:0;
+background:#fff0f6;
 }
 
-h1{
-color:#d63384;
+header{
+background:#ff4fa3;
+color:white;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
 }
 
-.section{
-margin:40px;
+nav{
+background:white;
+padding:15px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav button{
+margin:5px;
+padding:10px 18px;
+border:none;
+background:#ff4fa3;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+nav button:hover{
+background:#e83c91;
 }
 
 .gallery{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+gap:20px;
+padding:25px;
 }
 
 .product{
-width:180px;
+background:white;
+border-radius:10px;
+padding:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+text-align:center;
 }
 
 .product img{
 width:100%;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
-box-shadow:0 0 8px rgba(0,0,0,0.2);
 }
 
-.button{
-display:block;
-margin-top:5px;
+.buy{
+margin-top:10px;
+display:inline-block;
 background:#25D366;
 color:white;
-padding:6px;
-border-radius:6px;
+padding:8px 14px;
+border-radius:20px;
 text-decoration:none;
+font-size:14px;
 }
 
-#lightbox{
-display:none;
+.whatsapp{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-}
-
-#lightbox img{
-max-width:90%;
-max-height:90%;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 10px rgba(0,0,0,0.3);
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1>The VS Collections</h1>
-<p>Venta de productos Victoria Secret en Tijuana</p>
+<header>
+The VS Collections
+</header>
 
-<div class="section">
+<nav>
+<button onclick="showCategory('panties')">Panties</button>
+<button onclick="showCategory('bodies')">Bodies</button>
+<button onclick="showCategory('conjuntos')">Conjuntos</button>
+</nav>
 
-<h2>Panties / Tangas</h2>
-<p>$199 c/u | 3 por $550</p>
+<div class="gallery" id="gallery"></div>
 
-<div class="gallery">
-
-<div class="product">
-<img src="Messenger_creation_1.jpeg" onclick="openImg(this.src)">
-<a class="button" href="https://wa.me/526643608957?text=Hola%20quiero%20estas%20panties">Comprar</a>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Conjuntos</h2>
-<p>$850</p>
-
-<div class="gallery">
-
-<div class="product">
-<img src="conjuntos/Messenger_creation_06E0732A-D3B5-4CAB-B85B-7888DB4D5A71.jpeg" onclick="openImg(this.src)">
-<a class="button" href="https://wa.me/526643608957?text=Hola%20quiero%20este%20conjunto">Comprar</a>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<h2>Bodies</h2>
-<p>Pregunta por disponibilidad</p>
-
-<div class="gallery">
-
-<div class="product">
-<img src="bodies/Messenger_creation_09891DC8-F417-4FD8-948A-8408288675DB.png" onclick="openImg(this.src)">
-<a class="button" href="https://wa.me/526643608957?text=Hola%20quiero%20este%20body">Comprar</a>
-</div>
-
-</div>
-
-</div>
-
-
-<div id="lightbox" onclick="closeImg()">
-<img id="bigimg">
-</div>
+<a class="whatsapp" href="https://wa.me/5210000000000" target="_blank">💬</a>
 
 <script>
 
-function openImg(src){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("bigimg").src=src;
-}
+const whatsapp="5210000000000";
 
-function closeImg(){
-document.getElementById("lightbox").style.display="none";
+const panties=[
+"panties/foto1.jpeg",
+"panties/foto2.jpeg"
+];
+
+const bodies=[
+"bodies/foto1.jpeg",
+"bodies/foto2.jpeg"
+];
+
+const conjuntos=[
+"conjuntos/foto1.jpeg",
+"conjuntos/foto2.jpeg"
+];
+
+function showCategory(cat){
+
+let gallery=document.getElementById("gallery");
+gallery.innerHTML="";
+
+let items=[];
+
+if(cat=="panties") items=panties;
+if(cat=="bodies") items=bodies;
+if(cat=="conjuntos") items=conjuntos;
+
+items.forEach(img=>{
+
+let div=document.createElement("div");
+div.className="product";
+
+let model=img.split("/")[1];
+
+div.innerHTML=`
+<img src="${img}" onclick="window.open('${img}')">
+
+<br>
+
+<a class="buy"
+href="https://wa.me/${whatsapp}?text=Hola%20quiero%20este%20modelo:%20${model}"
+target="_blank">
+Comprar por WhatsApp
+</a>
+`;
+
+gallery.appendChild(div);
+
+});
+
 }
 
 </script>
