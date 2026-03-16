@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>The VS Collections</title>
@@ -10,6 +11,7 @@ body{
 font-family:Arial;
 background:#fff0f5;
 text-align:center;
+margin:0;
 }
 
 h1{
@@ -24,13 +26,18 @@ margin:40px;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:20px;
+gap:15px;
+}
+
+.product{
+width:180px;
 }
 
 .product img{
-width:180px;
+width:100%;
 border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
+cursor:pointer;
+box-shadow:0 0 8px rgba(0,0,0,0.2);
 }
 
 .button{
@@ -41,6 +48,23 @@ color:white;
 padding:6px;
 border-radius:6px;
 text-decoration:none;
+}
+
+#lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+#lightbox img{
+max-width:90%;
+max-height:90%;
 }
 
 </style>
@@ -57,7 +81,14 @@ text-decoration:none;
 <h2>Panties / Tangas</h2>
 <p>$199 c/u | 3 por $550</p>
 
-<div class="gallery" id="panties"></div>
+<div class="gallery">
+
+<div class="product">
+<img src="Messenger_creation_1.jpeg" onclick="openImg(this.src)">
+<a class="button" href="https://wa.me/526643608957?text=Hola%20quiero%20estas%20panties">Comprar</a>
+</div>
+
+</div>
 
 </div>
 
@@ -67,7 +98,14 @@ text-decoration:none;
 <h2>Conjuntos</h2>
 <p>$850</p>
 
-<div class="gallery" id="conjuntos"></div>
+<div class="gallery">
+
+<div class="product">
+<img src="conjuntos/Messenger_creation_06E0732A-D3B5-4CAB-B85B-7888DB4D5A71.jpeg" onclick="openImg(this.src)">
+<a class="button" href="https://wa.me/526643608957?text=Hola%20quiero%20este%20conjunto">Comprar</a>
+</div>
+
+</div>
 
 </div>
 
@@ -77,62 +115,32 @@ text-decoration:none;
 <h2>Bodies</h2>
 <p>Pregunta por disponibilidad</p>
 
-<div class="gallery" id="bodies"></div>
+<div class="gallery">
+
+<div class="product">
+<img src="bodies/Messenger_creation_09891DC8-F417-4FD8-948A-8408288675DB.png" onclick="openImg(this.src)">
+<a class="button" href="https://wa.me/526643608957?text=Hola%20quiero%20este%20body">Comprar</a>
+</div>
+
+</div>
 
 </div>
 
 
-<div class="section">
-
-<h2>Cremas y Lociones</h2>
-<p>$250 c/u | Set 2 piezas $450</p>
-
+<div id="lightbox" onclick="closeImg()">
+<img id="bigimg">
 </div>
-
 
 <script>
 
-const whatsapp="https://wa.me/526643608957";
-
-const panties=[
-"Messenger_creation_1.jpeg",
-"Messenger_creation_2.jpeg"
-];
-
-const conjuntos=[
-"Messenger_creation_06E0732A-D3B5-4CAB-B85B-7888DB4D5A71.jpeg",
-"Messenger_creation_185DF4E7-DCFC-4B17-B730-DF1A01B2DE2D.jpeg",
-"Messenger_creation_1F4E2B49-1366-48B7-91DC-7E78EB527C1E.jpeg"
-];
-
-const bodies=[
-"Messenger_creation_09891DC8-F417-4FD8-948A-8408288675DB.png",
-"Messenger_creation_300FF4A7-8AFE-40A1-A944-658E7DA869B8.jpeg"
-];
-
-
-function cargarImagenes(lista,carpeta,id){
-
-const contenedor=document.getElementById(id);
-
-lista.forEach(nombre=>{
-
-const div=document.createElement("div");
-
-div.innerHTML=`
-<img src="${carpeta}${nombre}">
-<a class="button" href="${whatsapp}">Comprar</a>
-`;
-
-contenedor.appendChild(div);
-
-});
-
+function openImg(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("bigimg").src=src;
 }
 
-cargarImagenes(panties,"","panties");
-cargarImagenes(conjuntos,"conjuntos/","conjuntos");
-cargarImagenes(bodies,"bodies/","bodies");
+function closeImg(){
+document.getElementById("lightbox").style.display="none";
+}
 
 </script>
 
