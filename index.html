@@ -97,35 +97,46 @@ header {
 <a class="whatsapp-float" href="https://wa.me/5210000000000" target="_blank">💬</a>
 
 <script>
-const WHATSAPP = "5210000000000";
+<script>
 
-// 🔥 AQUI SOLO CAMBIAS EL NÚMERO DE FOTOS
-const TOTAL = 150;
+const whatsapp = "5216641234567"; // <-- cambia por tu número real
 
-function loadImages(folder) {
-  const gallery = document.getElementById("gallery");
-  gallery.innerHTML = "";
+function loadImages(folder, total){
 
-  for (let i = 1; i <= TOTAL; i++) {
-    let file = `Messenger_creation_${i}.jpeg`;
+let gallery = document.getElementById("gallery");
+gallery.innerHTML = "";
 
-    let imgPath = folder + "/" + file;
+for(let i = 1; i <= total; i++){
 
-    let card = `
-      <div class="card">
-        <img src="${imgPath}" onerror="this.style.display='none'">
-        <a class="btn" href="https://wa.me/${WHATSAPP}?text=Hola, me interesa el modelo ${file}" target="_blank">
-          Comprar
-        </a>
-      </div>
-    `;
+let img = folder + "/" + i + ".jpeg";
 
-    gallery.innerHTML += card;
-  }
+gallery.innerHTML += `
+<div class="product">
+<img src="${img}" onclick="window.open('${img}')">
+
+<br>
+
+<a class="buy"
+href="https://wa.me/${whatsapp}?text=Hola%20quiero%20el%20modelo%20${i}%20de%20${folder}"
+target="_blank">
+Comprar por WhatsApp
+</a>
+</div>
+`;
+
 }
 
-// Carga inicial
-loadImages('panties');
+}
+
+// botones
+function showPanties(){ loadImages("panties", 200); }
+function showBodies(){ loadImages("bodies", 50); }
+function showConjuntos(){ loadImages("conjuntos", 40); }
+
+// carga inicial
+showPanties();
+
+</script>
 </script>
 
 </body>
