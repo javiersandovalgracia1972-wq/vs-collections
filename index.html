@@ -114,9 +114,10 @@ header{
 
 <script>
 
-const whatsapp = "526643608957";
+<script>
 
-// 🔥 SOLO ESTE FORMATO (YA CORREGISTE NOMBRES)
+const whatsapp = "6643608957";
+
 function loadImages(folder, total){
 
 let gallery = document.getElementById("gallery");
@@ -126,30 +127,40 @@ for(let i = 1; i <= total; i++){
 
 let img = folder + "/" + i + ".jpeg";
 
+let image = new Image();
+image.src = img;
+
+image.onload = function(){
+
+let mensaje = encodeURIComponent(
+`Hola, quiero el modelo ${i} de ${folder}. ¿Está disponible? ¿Qué tallas tienes? Me interesa la promo de 3 por 550`
+);
+
 gallery.innerHTML += `
 <div class="card">
 <img src="${img}" onclick="window.open('${img}')">
 
 <a class="btn"
-href="https://wa.me/52${whatsapp}?text=${encodeURIComponent(`Hola, quiero el modelo ${i} de ${folder}. ¿Está disponible? ¿Qué tallas tienes? Me interesa la promo de 3 por 550`)}"
+href="https://wa.me/52${whatsapp}?text=${mensaje}"
 target="_blank">
 Comprar por WhatsApp
 </a>
 </div>
 `;
-`;
+
+};
 
 }
 
 }
 
-// 🔁 AJUSTA A TU REALIDAD
 function showPanties(){ loadImages("panties", 80); }
-function showBodies(){ loadImages("bodies", 11); }
-function showConjuntos(){ loadImages("conjuntos", 38); }
+function showBodies(){ loadImages("bodies", 20); }
+function showConjuntos(){ loadImages("conjuntos", 40); }
 
-// carga inicial
 showPanties();
+
+</script>
 
 </script>
 
