@@ -6,77 +6,78 @@
 <title>The VS Collections</title>
 
 <style>
-body {
+body{
   font-family: Arial;
-  margin: 0;
-  background: #fff0f5;
+  margin:0;
+  background:#fff0f5;
 }
 
-header {
-  background: #ff4da6;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 26px;
-  font-weight: bold;
+header{
+  background:#ff4da6;
+  color:white;
+  padding:20px;
+  text-align:center;
+  font-size:26px;
+  font-weight:bold;
 }
 
-.menu {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 15px;
-  background: #ffe6f0;
+.menu{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:15px;
+  background:#ffe6f0;
 }
 
-.menu button {
-  background: #ff4da6;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 20px;
-  cursor: pointer;
+.menu button{
+  background:#ff4da6;
+  color:white;
+  border:none;
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 20px;
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:15px;
+  padding:20px;
 }
 
-.card {
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
+.card{
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  text-align:center;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
+.card img{
+  width:100%;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-.btn {
-  display: block;
-  margin-top: 8px;
-  background: #25D366;
-  color: white;
-  padding: 8px;
-  border-radius: 8px;
-  text-decoration: none;
+.btn{
+  display:block;
+  margin-top:8px;
+  background:#25D366;
+  color:white;
+  padding:8px;
+  border-radius:8px;
+  text-decoration:none;
 }
 
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
-  font-size: 20px;
-  text-decoration: none;
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:20px;
 }
 </style>
 </head>
@@ -93,13 +94,13 @@ header {
 
 <div class="gallery" id="gallery"></div>
 
-<a class="whatsapp-float" href="https://wa.me/5216641234567" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/5216643608957" target="_blank">💬</a>
 
 <script>
 
-const whatsapp = "5216641234567";
+const whatsapp = "5216643608957";
 
-// 🔥 ESTA FUNCIÓN INTENTA VARIOS FORMATOS
+// 🔥 SOLO ESTE FORMATO (YA CORREGISTE NOMBRES)
 function loadImages(folder, total){
 
 let gallery = document.getElementById("gallery");
@@ -107,16 +108,11 @@ gallery.innerHTML = "";
 
 for(let i = 1; i <= total; i++){
 
-let formats = [
-folder + "/" + i + ".jpeg",
-folder + "/(" + i + ").jpeg"
-];
-
-formats.forEach(img => {
+let img = folder + "/" + i + ".jpeg";
 
 gallery.innerHTML += `
 <div class="card">
-<img src="${img}" onerror="this.style.display='none'">
+<img src="${img}" onclick="window.open('${img}')">
 
 <a class="btn"
 href="https://wa.me/${whatsapp}?text=Hola%20quiero%20el%20modelo%20${i}%20de%20${folder}"
@@ -126,18 +122,16 @@ Comprar por WhatsApp
 </div>
 `;
 
-});
-
 }
 
 }
 
-// 🔁 AJUSTA NÚMEROS
-function showPanties(){ loadImages("panties", 200); }
-function showBodies(){ loadImages("bodies", 50); }
-function showConjuntos(){ loadImages("conjuntos", 40); }
+// 🔁 AJUSTA A TU REALIDAD
+function showPanties(){ loadImages("panties", 80); }
+function showBodies(){ loadImages("bodies", 11); }
+function showConjuntos(){ loadImages("conjuntos", 38); }
 
-// inicio
+// carga inicial
 showPanties();
 
 </script>
