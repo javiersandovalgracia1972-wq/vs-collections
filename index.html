@@ -15,9 +15,9 @@ body {
 header {
   background: #ff4da6;
   color: white;
-  padding: 15px;
+  padding: 20px;
   text-align: center;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
 }
 
@@ -87,19 +87,18 @@ header {
 <header>The VS Collections</header>
 
 <div class="menu">
-  <button onclick="loadImages('panties')">Panties</button>
-  <button onclick="loadImages('bodies')">Bodies</button>
-  <button onclick="loadImages('conjuntos')">Conjuntos</button>
+  <button onclick="showPanties()">Panties</button>
+  <button onclick="showBodies()">Bodies</button>
+  <button onclick="showConjuntos()">Conjuntos</button>
 </div>
 
 <div class="gallery" id="gallery"></div>
 
-<a class="whatsapp-float" href="https://wa.me/5210000000000" target="_blank">💬</a>
+<a class="whatsapp-float" href="https://wa.me/5216641234567" target="_blank">💬</a>
 
 <script>
-<script>
 
-const whatsapp = "5216641234567"; // <-- cambia por tu número real
+const whatsapp = "5216641234567"; // 🔁 CAMBIA TU NÚMERO
 
 function loadImages(folder, total){
 
@@ -111,12 +110,10 @@ for(let i = 1; i <= total; i++){
 let img = folder + "/" + i + ".jpeg";
 
 gallery.innerHTML += `
-<div class="product">
+<div class="card">
 <img src="${img}" onclick="window.open('${img}')">
 
-<br>
-
-<a class="buy"
+<a class="btn"
 href="https://wa.me/${whatsapp}?text=Hola%20quiero%20el%20modelo%20${i}%20de%20${folder}"
 target="_blank">
 Comprar por WhatsApp
@@ -128,7 +125,7 @@ Comprar por WhatsApp
 
 }
 
-// botones
+// 🔁 AJUSTA ESTOS NÚMEROS A TUS FOTOS REALES
 function showPanties(){ loadImages("panties", 200); }
 function showBodies(){ loadImages("bodies", 50); }
 function showConjuntos(){ loadImages("conjuntos", 40); }
@@ -136,7 +133,6 @@ function showConjuntos(){ loadImages("conjuntos", 40); }
 // carga inicial
 showPanties();
 
-</script>
 </script>
 
 </body>
