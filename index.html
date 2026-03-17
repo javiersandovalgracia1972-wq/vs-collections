@@ -131,11 +131,12 @@ gallery.innerHTML += `
 <img src="${img}" onclick="window.open('${img}')">
 
 <a class="btn"
-href="href="https://wa.me/${whatsapp}?text=Hola,%20quiero%20el%20modelo%20${i}%20de%20${folder}.%20¿Está%20disponible?%20¿Qué%20tallas%20tienes?%20Me%20interesa%20la%20promo%20de%203%20por%20550"
+href="https://wa.me/52${whatsapp}?text=${encodeURIComponent(`Hola, quiero el modelo ${i} de ${folder}. ¿Está disponible? ¿Qué tallas tienes? Me interesa la promo de 3 por 550`)}"
 target="_blank">
 Comprar por WhatsApp
 </a>
 </div>
+`;
 `;
 
 }
