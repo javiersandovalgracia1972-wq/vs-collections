@@ -55,7 +55,6 @@ header {
 .card img {
   width: 100%;
   border-radius: 10px;
-  cursor: pointer;
 }
 
 .btn {
@@ -98,8 +97,9 @@ header {
 
 <script>
 
-const whatsapp = "5216643608957"; // 🔁 CAMBIA TU NÚMERO
+const whatsapp = "5216641234567";
 
+// 🔥 ESTA FUNCIÓN INTENTA VARIOS FORMATOS
 function loadImages(folder, total){
 
 let gallery = document.getElementById("gallery");
@@ -107,11 +107,16 @@ gallery.innerHTML = "";
 
 for(let i = 1; i <= total; i++){
 
-let img = folder + "/(" + i + ").jpeg";
+let formats = [
+folder + "/" + i + ".jpeg",
+folder + "/(" + i + ").jpeg"
+];
+
+formats.forEach(img => {
 
 gallery.innerHTML += `
 <div class="card">
-<img src="${img}" onclick="window.open('${img}')">
+<img src="${img}" onerror="this.style.display='none'">
 
 <a class="btn"
 href="https://wa.me/${whatsapp}?text=Hola%20quiero%20el%20modelo%20${i}%20de%20${folder}"
@@ -121,16 +126,18 @@ Comprar por WhatsApp
 </div>
 `;
 
-}
+});
 
 }
 
-// 🔁 AJUSTA ESTOS NÚMEROS A TUS FOTOS REALES
+}
+
+// 🔁 AJUSTA NÚMEROS
 function showPanties(){ loadImages("panties", 200); }
 function showBodies(){ loadImages("bodies", 50); }
 function showConjuntos(){ loadImages("conjuntos", 40); }
 
-// carga inicial
+// inicio
 showPanties();
 
 </script>
